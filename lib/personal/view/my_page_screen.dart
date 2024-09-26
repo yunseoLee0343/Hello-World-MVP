@@ -29,6 +29,7 @@ class _MyPageScreenState extends State<MyPageScreen> {
     super.initState();
     PreferenceService.updateUserPreferences();
     user = UserPreferences().myUser;
+
     log("[MyPageScreen] UserPreferences updated");
     log("[MyPageScreen] UserPreferences: ${UserPreferences().myUser.id}, ${UserPreferences().myUser.name}, ${UserPreferences().myUser.imagePath}");
   }
@@ -103,11 +104,8 @@ class _MyPageScreenState extends State<MyPageScreen> {
               if (index == 1) {
                 // Fetch recent chat room when the chat screen tab is tapped
                 try {
-                  recentRoomProvider.fetchRecentChatRoom(
-                    Provider.of<RecentRoomService>(context, listen: false),
-                  );
-
                   final recentRoom = recentRoomProvider.recentChatRoom;
+                  log("[MypageScreenState()- recentRoom: $recentRoom");
 
                   if (recentRoom?.roomId == 'new_chat') {
                     context.go('/chat/new_chat');
