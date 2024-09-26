@@ -405,6 +405,7 @@ class ChatScreenState extends State<ChatScreen>
     final paddingVal = MediaQuery.of(context).size.height * 0.1;
     final recentRoomProvider = Provider.of<RecentRoomProvider>(context);
     log("[ChatScreenState-build()] Building ChatScreen...");
+    log("[ChatScreenstate-build()] Detected roomId is ${widget.roomId}");
 
     if (recentRoomProvider.recentChatRoom == null) {
       return const Center(child: CircularProgressIndicator());
